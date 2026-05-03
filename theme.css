@@ -629,21 +629,31 @@ body.rb-grid .workspace-leaf-content[data-type="markdown"]::before {
 body.rb-grid .markdown-source-view,
 body.rb-grid .markdown-preview-view { position: relative; z-index: 1; }
 
-/* CRT scanlines (off by default) */
-body.rb-scanlines .workspace::after {
+/* CRT scanlines (off by default).
+   Use position:fixed on body so the overlay covers the entire viewport
+   regardless of Obsidian's flex layout. Tint adapts to dark/light. */
+body.rb-scanlines::after {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 9999;
   background: repeating-linear-gradient(
     to bottom,
-    transparent 0,
-    transparent 2px,
-    rgba(0, 0, 0, 0.06) 2px,
-    rgba(0, 0, 0, 0.06) 3px
+    rgba(255, 255, 255, 0.05) 0,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 3px
   );
-  mix-blend-mode: multiply;
+}
+body.rb-scanlines.theme-light::after {
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.06) 0,
+    rgba(0, 0, 0, 0.06) 1px,
+    transparent 1px,
+    transparent 3px
+  );
 }
 
 /* =========================================================
