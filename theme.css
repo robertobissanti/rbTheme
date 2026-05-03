@@ -1,0 +1,572 @@
+/*
+  rbTheme — VaporWave / RetroWave for Obsidian
+  Tuned for programmers & long reading sessions.
+
+  Design principles:
+  - Never pure black (#000) or pure white (#fff): warm off-white on deep indigo
+  - Neon accents reserved for headings, links, focus, syntax — not body text
+  - WCAG AA contrast on body copy
+  - Optional glow & scanlines kept off by default (toggle in Style Settings)
+*/
+
+/* @settings
+
+name: rbTheme
+id: rb-theme
+settings:
+  -
+    id: rb-header-info
+    title: rbTheme
+    description: VaporWave / RetroWave theme — readable, low eye-strain. Toggle palette and effects below.
+    type: heading
+    level: 2
+    collapsed: false
+
+  -
+    id: rb-palette
+    title: Palette
+    description: Choose the color scheme. "Soft Reading" desaturates accents for long sessions.
+    type: class-select
+    default: rb-palette-synthwave
+    allowEmpty: false
+    options:
+      -
+        label: Synthwave (default — magenta + cyan on indigo)
+        value: rb-palette-synthwave
+      -
+        label: Outrun (orange + pink sunset)
+        value: rb-palette-outrun
+      -
+        label: Miami (teal + hot pink)
+        value: rb-palette-miami
+      -
+        label: Tokyo Night (muted purple + blue)
+        value: rb-palette-tokyo
+      -
+        label: Soft Reading (desaturated, eye-comfort)
+        value: rb-palette-soft
+
+  -
+    id: rb-bg-depth
+    title: Background depth
+    description: How dark the editor background goes.
+    type: class-select
+    default: rb-bg-medium
+    allowEmpty: false
+    options:
+      -
+        label: Deep (darkest indigo)
+        value: rb-bg-deep
+      -
+        label: Medium (default, balanced)
+        value: rb-bg-medium
+      -
+        label: Soft (lighter, less contrast)
+        value: rb-bg-soft
+
+  -
+    id: rb-grid
+    title: Retro grid background
+    description: Subtle perspective grid behind the workspace. Off by default.
+    type: class-toggle
+    default: false
+
+  -
+    id: rb-glow
+    title: Neon glow on headings & links
+    description: Adds a soft text-shadow. Off by default for max readability.
+    type: class-toggle
+    default: false
+
+  -
+    id: rb-scanlines
+    title: CRT scanlines
+    description: Very subtle horizontal scanlines. Pure aesthetics — leave off if it bothers you.
+    type: class-toggle
+    default: false
+
+  -
+    id: rb-mono-headings
+    title: Monospace headings
+    description: Use a coding font for headings (programmer vibe).
+    type: class-toggle
+    default: true
+
+  -
+    id: rb-fonts-heading
+    title: Heading section
+    type: heading
+    level: 3
+    collapsed: true
+
+  -
+    id: rb-font-text
+    title: Text font
+    description: Body text font family. Comma-separated list, no surrounding quotes.
+    type: variable-text
+    quotes: false
+    default: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
+
+  -
+    id: rb-font-mono
+    title: Monospace / code font
+    description: Used for code blocks and (optionally) headings.
+    type: variable-text
+    quotes: false
+    default: "'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, Consolas, monospace"
+
+  -
+    id: rb-font-size
+    title: Base font size (px)
+    type: variable-number-slider
+    default: 16
+    format: '{}px'
+    min: 13
+    max: 22
+    step: 1
+
+  -
+    id: rb-line-height
+    title: Line height
+    type: variable-number-slider
+    default: 1.65
+    min: 1.3
+    max: 2.0
+    step: 0.05
+
+  -
+    id: rb-accent-section
+    title: Custom accents
+    type: heading
+    level: 3
+    collapsed: true
+
+  -
+    id: rb-accent-primary
+    title: Override primary accent
+    description: Leave empty to use palette default.
+    type: variable-themed-color
+    format: hex
+    default-light: '#ff3ec8'
+    default-dark: '#ff3ec8'
+    opacity: false
+
+  -
+    id: rb-accent-secondary
+    title: Override secondary accent
+    type: variable-themed-color
+    format: hex
+    default-light: '#36e2ec'
+    default-dark: '#36e2ec'
+    opacity: false
+
+*/
+
+/* =========================================================
+   1. ROOT TOKENS — fonts, sizes, spacing
+   ========================================================= */
+body {
+  --rb-font-text: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --rb-font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, Consolas, monospace;
+  --rb-font-size: 16px;
+  --rb-line-height: 1.65;
+
+  --font-text-theme:      var(--rb-font-text);
+  --font-interface-theme: var(--rb-font-text);
+  --font-monospace-theme: var(--rb-font-mono);
+  --font-text-size:       var(--rb-font-size);
+  --line-height-normal:   var(--rb-line-height);
+}
+
+/* =========================================================
+   2. PALETTE — Synthwave (default)
+   Each palette overrides --rb-* tokens, then maps to Obsidian.
+   ========================================================= */
+
+/* default = synthwave */
+.theme-dark,
+.theme-dark.rb-palette-synthwave {
+  --rb-bg-0:   #14101f;  /* deepest */
+  --rb-bg-1:   #1a1530;  /* editor */
+  --rb-bg-2:   #221a3d;  /* sidebar */
+  --rb-bg-3:   #2c224d;  /* hover / panel */
+  --rb-line:   #3a2e63;
+  --rb-text:   #ece6ff;  /* warm off-white */
+  --rb-muted:  #a89fcf;
+  --rb-faint:  #6f6695;
+  --rb-accent-1: #ff3ec8;  /* magenta */
+  --rb-accent-2: #36e2ec;  /* cyan */
+  --rb-accent-3: #b56cff;  /* purple */
+  --rb-accent-4: #ffd23f;  /* sun yellow */
+  --rb-success:  #5eead4;
+  --rb-warning:  #ffb86b;
+  --rb-error:    #ff6b9d;
+}
+
+.theme-dark.rb-palette-outrun {
+  --rb-bg-0:  #1a0f1f;
+  --rb-bg-1:  #241324;
+  --rb-bg-2:  #2e1a2e;
+  --rb-bg-3:  #3b223a;
+  --rb-line:  #4d2d4a;
+  --rb-text:  #ffe8df;
+  --rb-muted: #d6a89f;
+  --rb-faint: #8a6160;
+  --rb-accent-1: #ff7a3d;
+  --rb-accent-2: #ff3e8c;
+  --rb-accent-3: #ffb547;
+  --rb-accent-4: #ff5577;
+  --rb-success: #7be0a7;
+  --rb-warning: #ffb86b;
+  --rb-error:   #ff6b6b;
+}
+
+.theme-dark.rb-palette-miami {
+  --rb-bg-0:  #0d1b2a;
+  --rb-bg-1:  #122438;
+  --rb-bg-2:  #182f47;
+  --rb-bg-3:  #1f3a57;
+  --rb-line:  #2a4a6e;
+  --rb-text:  #e6fbff;
+  --rb-muted: #8fc5d6;
+  --rb-faint: #5a7d8c;
+  --rb-accent-1: #ff4d8d;
+  --rb-accent-2: #2ee6c8;
+  --rb-accent-3: #5ec8ff;
+  --rb-accent-4: #ffe066;
+  --rb-success: #58e6b0;
+  --rb-warning: #ffc266;
+  --rb-error:   #ff5d8d;
+}
+
+.theme-dark.rb-palette-tokyo {
+  --rb-bg-0:  #16161e;
+  --rb-bg-1:  #1a1b26;
+  --rb-bg-2:  #1f2030;
+  --rb-bg-3:  #292e42;
+  --rb-line:  #3b4261;
+  --rb-text:  #c0caf5;
+  --rb-muted: #8089b3;
+  --rb-faint: #565f89;
+  --rb-accent-1: #bb9af7;
+  --rb-accent-2: #7aa2f7;
+  --rb-accent-3: #f7768e;
+  --rb-accent-4: #e0af68;
+  --rb-success: #9ece6a;
+  --rb-warning: #e0af68;
+  --rb-error:   #f7768e;
+}
+
+.theme-dark.rb-palette-soft {
+  --rb-bg-0:  #1c1a26;
+  --rb-bg-1:  #232132;
+  --rb-bg-2:  #2a283d;
+  --rb-bg-3:  #353249;
+  --rb-line:  #423e5c;
+  --rb-text:  #e8e4f0;
+  --rb-muted: #a59cbd;
+  --rb-faint: #6e6688;
+  --rb-accent-1: #d18acb;  /* desaturated magenta */
+  --rb-accent-2: #7bc4c9;  /* desaturated cyan */
+  --rb-accent-3: #a48de0;
+  --rb-accent-4: #d6c279;
+  --rb-success: #8ec9b3;
+  --rb-warning: #d6a87a;
+  --rb-error:   #d68a9c;
+}
+
+/* light variant — softer paper-like with retro pastel accents */
+.theme-light {
+  --rb-bg-0:  #f4f1ee;
+  --rb-bg-1:  #fbf8f4;
+  --rb-bg-2:  #efeae3;
+  --rb-bg-3:  #e6dfd5;
+  --rb-line:  #d6cbbb;
+  --rb-text:  #2a2440;
+  --rb-muted: #645a82;
+  --rb-faint: #9890ad;
+  --rb-accent-1: #c81f8c;
+  --rb-accent-2: #0d8a94;
+  --rb-accent-3: #7a3fc8;
+  --rb-accent-4: #c47a00;
+  --rb-success: #1f8a6e;
+  --rb-warning: #b76b00;
+  --rb-error:   #c8345e;
+}
+
+/* =========================================================
+   3. BACKGROUND DEPTH MODIFIERS
+   ========================================================= */
+.theme-dark.rb-bg-deep   { --rb-bg-1: var(--rb-bg-0); --rb-bg-2: #1a1530; }
+.theme-dark.rb-bg-soft   { --rb-bg-1: #221a3d; --rb-bg-2: #2c224d; --rb-bg-0: #1a1530; }
+
+/* =========================================================
+   4. MAP rb-* TOKENS TO OBSIDIAN VARIABLES
+   ========================================================= */
+body {
+  --background-primary:         var(--rb-bg-1);
+  --background-primary-alt:     var(--rb-bg-2);
+  --background-secondary:       var(--rb-bg-2);
+  --background-secondary-alt:   var(--rb-bg-0);
+  --background-modifier-border: var(--rb-line);
+  --background-modifier-border-hover:  var(--rb-accent-3);
+  --background-modifier-border-focus:  var(--rb-accent-1);
+  --background-modifier-hover:  var(--rb-bg-3);
+  --background-modifier-active-hover: var(--rb-bg-3);
+  --background-modifier-form-field: var(--rb-bg-0);
+  --background-modifier-success: color-mix(in srgb, var(--rb-success) 25%, transparent);
+  --background-modifier-error:   color-mix(in srgb, var(--rb-error) 25%, transparent);
+
+  --text-normal:   var(--rb-text);
+  --text-muted:    var(--rb-muted);
+  --text-faint:    var(--rb-faint);
+  --text-accent:   var(--rb-accent-1);
+  --text-accent-hover: var(--rb-accent-2);
+  --text-on-accent: var(--rb-bg-0);
+  --text-error:    var(--rb-error);
+  --text-success:  var(--rb-success);
+  --text-highlight-bg: color-mix(in srgb, var(--rb-accent-4) 35%, transparent);
+  --text-selection:    color-mix(in srgb, var(--rb-accent-1) 30%, transparent);
+
+  --interactive-normal:    var(--rb-bg-2);
+  --interactive-hover:     var(--rb-bg-3);
+  --interactive-accent:    var(--rb-accent-1);
+  --interactive-accent-hover: var(--rb-accent-2);
+
+  --link-color:        var(--rb-accent-2);
+  --link-color-hover:  var(--rb-accent-1);
+  --link-unresolved-color: var(--rb-accent-3);
+
+  --caret-color:       var(--rb-accent-1);
+
+  --tag-background:    color-mix(in srgb, var(--rb-accent-3) 18%, transparent);
+  --tag-color:         var(--rb-accent-3);
+
+  --code-background:   var(--rb-bg-0);
+  --code-normal:       var(--rb-text);
+  --code-comment:      var(--rb-faint);
+  --code-keyword:      var(--rb-accent-1);
+  --code-function:     var(--rb-accent-2);
+  --code-property:     var(--rb-accent-3);
+  --code-string:       var(--rb-accent-4);
+  --code-value:        var(--rb-success);
+  --code-operator:     var(--rb-accent-2);
+  --code-tag:          var(--rb-accent-1);
+  --code-important:    var(--rb-error);
+  --code-punctuation:  var(--rb-muted);
+
+  --h1-color: var(--rb-accent-1);
+  --h2-color: var(--rb-accent-2);
+  --h3-color: var(--rb-accent-3);
+  --h4-color: var(--rb-accent-4);
+  --h5-color: var(--rb-text);
+  --h6-color: var(--rb-muted);
+
+  --hr-color: var(--rb-line);
+  --quote-opening-modifier: var(--rb-accent-3);
+  --blockquote-border-color: var(--rb-accent-3);
+  --blockquote-background-color: color-mix(in srgb, var(--rb-accent-3) 8%, transparent);
+
+  --scrollbar-bg: transparent;
+  --scrollbar-thumb-bg: var(--rb-bg-3);
+  --scrollbar-active-thumb-bg: var(--rb-accent-3);
+
+  --indentation-guide:        color-mix(in srgb, var(--rb-line) 60%, transparent);
+  --indentation-guide-active: var(--rb-accent-2);
+
+  --pre-code-font: var(--rb-font-mono);
+}
+
+/* =========================================================
+   5. TYPOGRAPHY
+   ========================================================= */
+.markdown-preview-view,
+.markdown-source-view,
+.cm-editor {
+  font-size: var(--rb-font-size);
+  line-height: var(--rb-line-height);
+  letter-spacing: 0.005em;
+}
+
+.markdown-preview-view h1, .HyperMD-header-1,
+.markdown-preview-view h2, .HyperMD-header-2,
+.markdown-preview-view h3, .HyperMD-header-3,
+.markdown-preview-view h4, .HyperMD-header-4 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+/* monospace headings option */
+body.rb-mono-headings .markdown-preview-view h1,
+body.rb-mono-headings .markdown-preview-view h2,
+body.rb-mono-headings .markdown-preview-view h3,
+body.rb-mono-headings .markdown-preview-view h4,
+body.rb-mono-headings .markdown-preview-view h5,
+body.rb-mono-headings .markdown-preview-view h6,
+body.rb-mono-headings .HyperMD-header {
+  font-family: var(--rb-font-mono) !important;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+/* heading prefix marker — programmer-ish */
+body.rb-mono-headings .markdown-preview-view h1::before { content: "# ";    color: var(--rb-faint); }
+body.rb-mono-headings .markdown-preview-view h2::before { content: "## ";   color: var(--rb-faint); }
+body.rb-mono-headings .markdown-preview-view h3::before { content: "### ";  color: var(--rb-faint); }
+body.rb-mono-headings .markdown-preview-view h4::before { content: "#### "; color: var(--rb-faint); }
+
+/* =========================================================
+   6. CODE BLOCKS — programmer-grade
+   ========================================================= */
+.markdown-rendered pre,
+.markdown-rendered code {
+  font-family: var(--rb-font-mono);
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+.markdown-rendered pre {
+  background: var(--rb-bg-0);
+  border: 1px solid var(--rb-line);
+  border-left: 3px solid var(--rb-accent-1);
+  border-radius: 6px;
+  padding: 1em 1.2em;
+}
+
+.markdown-rendered :not(pre) > code {
+  background: color-mix(in srgb, var(--rb-accent-3) 14%, var(--rb-bg-0));
+  color: var(--rb-accent-2);
+  padding: 0.12em 0.4em;
+  border-radius: 4px;
+  font-size: 0.92em;
+}
+
+/* inline code in headings stays readable */
+.markdown-preview-view h1 code,
+.markdown-preview-view h2 code,
+.markdown-preview-view h3 code { color: var(--rb-text); }
+
+/* =========================================================
+   7. LINKS, TAGS, CALLOUTS
+   ========================================================= */
+.cm-link, .cm-hmd-internal-link, a.internal-link, a.external-link {
+  text-decoration: none;
+  border-bottom: 1px dashed color-mix(in srgb, var(--link-color) 50%, transparent);
+  transition: color .15s, border-color .15s;
+}
+.cm-link:hover, a.internal-link:hover, a.external-link:hover {
+  border-bottom-color: var(--link-color-hover);
+}
+
+.tag, a.tag {
+  font-family: var(--rb-font-mono);
+  font-size: 0.82em;
+  padding: 0.1em 0.55em;
+  border: 1px solid color-mix(in srgb, var(--rb-accent-3) 35%, transparent);
+  border-radius: 999px;
+}
+
+.callout {
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--callout-color, var(--rb-accent-3)) 35%, transparent);
+}
+
+/* =========================================================
+   8. UI CHROME — title bar, ribbon, tabs
+   ========================================================= */
+.workspace-tab-header.is-active {
+  background: var(--rb-bg-1);
+}
+.workspace-tab-header.is-active::before {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--rb-accent-1), var(--rb-accent-2));
+}
+
+.workspace-ribbon {
+  background: var(--rb-bg-0);
+  border-right: 1px solid var(--rb-line);
+}
+
+.titlebar { background: var(--rb-bg-0); }
+
+.status-bar {
+  background: var(--rb-bg-0);
+  border-top: 1px solid var(--rb-line);
+  font-family: var(--rb-font-mono);
+  font-size: 0.78em;
+  color: var(--rb-muted);
+}
+
+/* checkboxes */
+input[type="checkbox"]:checked {
+  background-color: var(--rb-accent-1);
+  border-color: var(--rb-accent-1);
+}
+
+/* selection */
+::selection { background: color-mix(in srgb, var(--rb-accent-1) 35%, transparent); }
+
+/* =========================================================
+   9. OPTIONAL EFFECTS — glow, grid, scanlines
+   ========================================================= */
+
+/* Neon glow on headings & links (off by default) */
+body.rb-glow .markdown-preview-view h1,
+body.rb-glow .HyperMD-header-1 {
+  text-shadow: 0 0 12px color-mix(in srgb, var(--rb-accent-1) 50%, transparent);
+}
+body.rb-glow .markdown-preview-view h2,
+body.rb-glow .HyperMD-header-2 {
+  text-shadow: 0 0 10px color-mix(in srgb, var(--rb-accent-2) 45%, transparent);
+}
+body.rb-glow a.internal-link,
+body.rb-glow a.external-link {
+  text-shadow: 0 0 6px color-mix(in srgb, var(--link-color) 35%, transparent);
+}
+
+/* Retro perspective grid (off by default) */
+body.rb-grid .workspace-leaf-content[data-type="markdown"] {
+  position: relative;
+  isolation: isolate;
+}
+body.rb-grid .workspace-leaf-content[data-type="markdown"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image:
+    linear-gradient(var(--rb-accent-2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rb-accent-1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 100%);
+}
+body.rb-grid .markdown-source-view,
+body.rb-grid .markdown-preview-view { position: relative; z-index: 1; }
+
+/* CRT scanlines (off by default) */
+body.rb-scanlines .workspace::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2px,
+    rgba(0, 0, 0, 0.06) 2px,
+    rgba(0, 0, 0, 0.06) 3px
+  );
+  mix-blend-mode: multiply;
+}
+
+/* =========================================================
+  10. GRACEFUL FALLBACK — reduce motion / contrast
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
