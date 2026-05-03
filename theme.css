@@ -647,6 +647,14 @@ body.rb-scanlines::after {
     transparent 2px,
     transparent 4px
   );
+  background-size: 100% 4px;
+  animation: rb-scanline-roll 8s linear infinite;
+  will-change: background-position;
+}
+
+@keyframes rb-scanline-roll {
+  from { background-position: 0 0; }
+  to   { background-position: 0 4px; }  /* one pitch = seamless loop */
 }
 body.rb-scanlines.theme-light::after {
   background: repeating-linear-gradient(
