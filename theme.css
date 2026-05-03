@@ -1,5 +1,5 @@
 /*
-  rbTheme — VaporWave / RetroWave for Obsidian
+  rbWave — VaporWave / RetroWave for Obsidian
   Tuned for programmers & long reading sessions.
 
   Design principles:
@@ -11,12 +11,12 @@
 
 /* @settings
 
-name: rbTheme
-id: rb-theme
+name: rbWave
+id: rb-wave
 settings:
   -
     id: rb-header-info
-    title: rbTheme
+    title: rbWave
     description: VaporWave / RetroWave theme — readable, low eye-strain. Toggle palette and effects below.
     type: heading
     level: 2

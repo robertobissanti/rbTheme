@@ -1,12 +1,12 @@
-# rbTheme
+# rbWave
 
 [English](README.md) • [Italiano](README_it.md)
 
 An Obsidian theme with a **VaporWave / RetroWave** vibe, built for people who spend long hours at the screen: programmers, engineers, heavy readers.
 
-![rbTheme — Synthwave palette](background.png)
+![rbWave — Synthwave palette](background.png)
 
-![rbTheme — Tokyo Night palette](background2.png)
+![rbWave — Tokyo Night palette](background2.png)
 
 ## Philosophy
 
@@ -18,10 +18,10 @@ An Obsidian theme with a **VaporWave / RetroWave** vibe, built for people who sp
 
 ## Installation
 
-1. Copy the `rbTheme/` folder into `<vault>/.obsidian/themes/rbTheme/`
-2. Settings → Appearance → Theme → select **rbTheme**
+1. Copy the `rbWave/` folder into `<vault>/.obsidian/themes/rbWave/`
+2. Settings → Appearance → Theme → select **rbWave**
 3. Install the [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin
-4. Open Settings → Style Settings → rbTheme
+4. Open Settings → Style Settings → rbWave
 
 ## Variants (Style Settings)
 
@@ -42,7 +42,7 @@ An Obsidian theme with a **VaporWave / RetroWave** vibe, built for people who sp
 ## Structure
 
 ```
-rbTheme/
+rbWave/
 ├── manifest.json
 ├── theme.css
 ├── LICENSE
