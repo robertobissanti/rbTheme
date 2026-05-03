@@ -52,12 +52,15 @@ rbWave/
 
 ## Author
 
-**Roberto Bissanti** — software developer and renewable-energy engineer.
-GitHub: [@robertobissanti](https://github.com/robertobissanti)
+**Ing. Roberto Bissanti** — aerospace engineer applied to renewable energy innovation (vertical-axis wind turbines, small wind systems, shape-memory alloys), based in Palermo, Sicily. Also a software developer for the cases the spreadsheet can't reach.
 
-Built rbWave for himself: long Mac sessions split between code and engineering notes, a love for VaporWave/RetroWave aesthetics, and a stubborn refusal to stare at pure white screens. If the theme works for you too, even better.
+Mac user since 1989 — old enough to remember when "dark mode" meant the screen was off. The eyes are no longer twenty, hence rbWave.
 
-Issues, ideas and PRs welcome on [github.com/robertobissanti/rbTheme](https://github.com/robertobissanti/rbTheme).
+- 📬 [roberto.bissanti@gmail.com](mailto:roberto.bissanti@gmail.com)
+- 💼 [LinkedIn](https://www.linkedin.com/in/roberto-bissanti/)
+- 🐙 [GitHub @robertobissanti](https://github.com/robertobissanti)
+
+Issues, ideas and PRs are welcome on [github.com/robertobissanti/rbTheme](https://github.com/robertobissanti/rbTheme).
 
 ## License
 
