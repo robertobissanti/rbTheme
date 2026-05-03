@@ -50,6 +50,15 @@ rbWave/
 └── README_it.md
 ```
 
+## Author
+
+**Roberto Bissanti** — software developer and renewable-energy engineer.
+GitHub: [@robertobissanti](https://github.com/robertobissanti)
+
+Built rbWave for himself: long Mac sessions split between code and engineering notes, a love for VaporWave/RetroWave aesthetics, and a stubborn refusal to stare at pure white screens. If the theme works for you too, even better.
+
+Issues, ideas and PRs welcome on [github.com/robertobissanti/rbTheme](https://github.com/robertobissanti/rbTheme).
+
 ## License
 
 [GPL v2](LICENSE) — use, fork, modify.
