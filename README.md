@@ -202,3 +202,7 @@ Issues, ideas and PRs are welcome on [github.com/robertobissanti/rbTheme](https:
 ## License
 
 [GPL v2](LICENSE) — use, fork, modify.
+
+### Third-party assets
+
+- **[Lucide](https://lucide.dev)** icons (ISC License) — used for custom checkbox glyphs.

@@ -202,3 +202,7 @@ Issue, idee e PR sono benvenute su [github.com/robertobissanti/rbTheme](https://
 ## Licenza
 
 [GPL v2](LICENSE) — usa, fork, modifica.
+
+### Asset di terze parti
+
+- **[Lucide](https://lucide.dev)** icons (licenza ISC) — usate per i glifi dei checkbox custom.
