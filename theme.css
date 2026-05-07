@@ -595,6 +595,17 @@ input.task-list-item-checkbox {
   transition: background .12s, border-color .12s;
 }
 
+/* Suppress Obsidian's default :checked overlay (it draws a check via
+   ::before/::after pseudos that stack on top of our background-image). */
+input.task-list-item-checkbox::before,
+input.task-list-item-checkbox::after,
+input[data-task]::before,
+input[data-task]::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
 
 /* Per-state: set background color + Lucide icon (mask) */
 
