@@ -50,6 +50,143 @@ rbWave/
 └── README_it.md
 ```
 
+## Callouts & checkboxes preview
+
+> The blocks below render with full styling **only inside Obsidian**. GitHub renders a subset of callouts (NOTE / TIP / IMPORTANT / WARNING / CAUTION) and shows custom task markers as plain checkboxes.
+
+### Callouts
+
+> [!NOTE] Standard note
+> Default block. Useful for general info that doesn't need extra emphasis.
+> Syntax: `> [!NOTE]`
+
+> [!TIP] Useful tip
+> Use callouts to organize notes visually. They can be nested.
+> Syntax: `> [!TIP]`
+
+> [!IMPORTANT] Important
+> Crucial information for understanding what follows.
+> Syntax: `> [!IMPORTANT]`
+
+> [!WARNING] Warning
+> Pay attention — this could cause confusion if ignored.
+> Syntax: `> [!WARNING]`
+
+> [!CAUTION] Caution
+> Proceed carefully. A wrong action here may cause data loss or major errors.
+> Syntax: `> [!CAUTION]`
+
+> [!ABSTRACT] Summary
+> Ideal for executive summaries. `[!SUMMARY]` is an alias.
+> Syntax: `> [!ABSTRACT]` or `> [!SUMMARY]`
+
+> [!INFO] Info
+> Technical details or supporting data.
+> Syntax: `> [!INFO]`
+
+> [!QUOTE] Quote
+> "The best way to predict the future is to create it."
+> Syntax: `> [!QUOTE]`
+
+> [!SUCCESS] Success
+> A process completed correctly or a hypothesis was verified.
+> Syntax: `> [!SUCCESS]`
+
+> [!QUESTION] Question
+> Open question highlighted as such.
+> Syntax: `> [!QUESTION]`
+
+> [!FAILURE] Failure
+> Something didn't work as expected, or a test failed.
+> Syntax: `> [!FAILURE]`
+
+> [!DANGER] Danger
+> High risk. Use only for critical warnings.
+> Syntax: `> [!DANGER]`
+
+> [!BUG] Bug
+> Track known software bugs in your notes.
+> Syntax: `> [!BUG]`
+
+> [!EXAMPLE] Example
+> 1. Start with `> [!TYPE]`
+> 2. Add content on following lines.
+> Syntax: `> [!EXAMPLE]`
+
+#### Collapsible callout
+
+Add a `-` after the type to make it collapsed by default.
+
+> [!TIP]- Click to expand
+> Hidden until clicked. Good for long details or exercise solutions.
+> Syntax: `> [!TIP]-`
+
+### Custom checkboxes
+
+#### Base states
+- [ ] To-do (default) `[ ]`
+- [x] Completed `[x]`
+- [X] Completed (uppercase) `[X]`
+- [-] Cancelled / N/A `[-]`
+
+#### Priority & urgency
+- [!] **URGENT** — immediate action `[!]`
+- [>] Delegated to someone else `[>]`
+- [<] Postponed / scheduled `[<]`
+- [/] In progress `[/]`
+
+#### Ideas & creativity
+- [*] Brilliant idea / favourite `[*]`
+- [l] Insight / lightbulb `[l]`
+- [B] Brainstorming `[B]`
+- [Y] Reflection / thought `[Y]`
+
+#### Doubts & verification
+- [?] Open question `[?]`
+- [w] To review `[w]`
+- [V] Verified `[V]`
+
+#### Development & tech
+- [b] Bug to fix `[b]`
+- [f] Feature request / flag `[f]`
+- [k] Key / password / critical `[k]`
+- [S] Secure / locked `[S]`
+- [c] Cloud / sync `[c]`
+
+#### Time & organization
+- [t] Target / goal `[t]`
+- [D] Deadline / date `[D]`
+- [O] Estimated time `[O]`
+- [z] Snoozed `[z]`
+- [R] To refresh `[R]`
+
+#### Communication & info
+- [i] General info `[i]`
+- [n] Numeric note `[n]`
+- [Q] Open discussion `[Q]`
+- [u] User involved `[u]`
+- [m] Place / map `[m]`
+
+#### Misc
+- [p] Pin / fixed `[p]`
+- [d] To delete / trash `[d]`
+- [C] Recycle / review `[C]`
+- [E] External link / web `[E]`
+- [F] Hot / trending `[F]`
+- [H] Home / main `[H]`
+- [J] Celebration `[J]`
+- [K] Tool `[K]`
+- [L] Reading / study `[L]`
+- [M] Finance / cost `[M]`
+- [N] Quick note `[N]`
+- [P] Pin (variant) `[P]`
+- [T] Ticket / support `[T]`
+- [U] High priority (up) `[U]`
+- [W] Manual work `[W]`
+- [a] Audio / recorded `[a]`
+- [e] Email to send `[e]`
+- [s] Saved / bookmark `[s]`
+
 ## Author
 
 **Ing. Roberto Bissanti** — aerospace engineer applied to renewable energy innovation (vertical-axis wind turbines, small wind systems, shape-memory alloys), based in Palermo, Sicily. Also a software developer for the cases the spreadsheet can't reach.

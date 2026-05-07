@@ -550,7 +550,204 @@ body.rb-mono-headings .markdown-preview-view h4::before { content: "#### "; colo
 
 .callout {
   border-radius: 8px;
-  border: 1px solid color-mix(in srgb, var(--callout-color, var(--rb-accent-3)) 35%, transparent);
+  border: 1px solid color-mix(in srgb, rgb(var(--callout-color)) 40%, transparent);
+}
+
+/* Disambiguate the two visually-collapsing pairs.
+   Other callout types keep Obsidian's defaults. */
+
+/* TIP   = green flame (default already)            */
+/* IMPORTANT = magenta alert with stronger contrast */
+.callout[data-callout="important"] {
+  --callout-color: 200, 70, 200;
+  --callout-icon: lucide-alert-octagon;
+}
+
+/* WARNING = amber triangle (default already)       */
+/* CAUTION = red lightning, distinct severity hue   */
+.callout[data-callout="caution"] {
+  --callout-color: 230, 60, 60;
+  --callout-icon: lucide-zap;
+}
+
+/* =========================================================
+   7b. CUSTOM CHECKBOXES (task list states)
+   Each [data-task="X"] gets a distinct colour + glyph.
+   ========================================================= */
+.markdown-rendered li[data-task] > input[type="checkbox"],
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task] > input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.15em;
+  height: 1.15em;
+  border-radius: 4px;
+  border: 1.5px solid var(--rb-faint);
+  background: var(--rb-bg-0);
+  position: relative;
+  cursor: pointer;
+  vertical-align: -0.18em;
+  margin-right: 0.45em;
+  font-family: var(--rb-font-mono);
+  flex-shrink: 0;
+  transition: background .12s, border-color .12s;
+}
+.markdown-rendered li[data-task] > input[type="checkbox"]::after,
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task] > input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78em;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--rb-bg-0);
+}
+
+/* helper macro: each rule sets bg/border + glyph via ::after content */
+li[data-task="x"]  > input, li[data-task="X"]  > input { background: var(--rb-success); border-color: var(--rb-success); }
+li[data-task="x"]  > input::after, li[data-task="X"]  > input::after { content: "✓"; }
+
+li[data-task="-"]  > input { background: var(--rb-bg-3); border-color: var(--rb-faint); }
+li[data-task="-"]  > input::after { content: "⊘"; color: var(--rb-faint); }
+
+li[data-task="!"]  > input { background: var(--rb-error); border-color: var(--rb-error); }
+li[data-task="!"]  > input::after { content: "!"; }
+
+li[data-task=">"]  > input { background: var(--rb-accent-2); border-color: var(--rb-accent-2); }
+li[data-task=">"]  > input::after { content: "›"; }
+
+li[data-task="<"]  > input { background: var(--rb-accent-3); border-color: var(--rb-accent-3); }
+li[data-task="<"]  > input::after { content: "‹"; }
+
+li[data-task="/"]  > input { background: var(--rb-warning); border-color: var(--rb-warning); }
+li[data-task="/"]  > input::after { content: "◐"; }
+
+li[data-task="*"]  > input { background: var(--rb-accent-4); border-color: var(--rb-accent-4); }
+li[data-task="*"]  > input::after { content: "★"; }
+
+li[data-task="l"]  > input { background: var(--rb-accent-4); border-color: var(--rb-accent-4); }
+li[data-task="l"]  > input::after { content: "💡"; font-size: 0.7em; }
+
+li[data-task="B"]  > input { background: var(--rb-accent-3); border-color: var(--rb-accent-3); }
+li[data-task="B"]  > input::after { content: "🧠"; font-size: 0.7em; }
+
+li[data-task="Y"]  > input { background: var(--rb-accent-3); border-color: var(--rb-accent-3); }
+li[data-task="Y"]  > input::after { content: "💭"; font-size: 0.7em; }
+
+li[data-task="?"]  > input { background: var(--rb-warning); border-color: var(--rb-warning); }
+li[data-task="?"]  > input::after { content: "?"; }
+
+li[data-task="w"]  > input { background: var(--rb-accent-4); border-color: var(--rb-accent-4); }
+li[data-task="w"]  > input::after { content: "👁"; font-size: 0.7em; color: var(--rb-bg-0); }
+
+li[data-task="V"]  > input { background: var(--rb-success); border-color: var(--rb-success); }
+li[data-task="V"]  > input::after { content: "✓✓"; font-size: 0.55em; }
+
+li[data-task="b"]  > input { background: var(--rb-error); border-color: var(--rb-error); }
+li[data-task="b"]  > input::after { content: "🐞"; font-size: 0.7em; }
+
+li[data-task="f"]  > input { background: var(--rb-accent-1); border-color: var(--rb-accent-1); }
+li[data-task="f"]  > input::after { content: "⚑"; }
+
+li[data-task="k"]  > input { background: var(--rb-accent-4); border-color: var(--rb-accent-4); }
+li[data-task="k"]  > input::after { content: "🔑"; font-size: 0.7em; }
+
+li[data-task="S"]  > input { background: var(--rb-accent-3); border-color: var(--rb-accent-3); }
+li[data-task="S"]  > input::after { content: "🔒"; font-size: 0.7em; }
+
+li[data-task="c"]  > input { background: var(--rb-accent-2); border-color: var(--rb-accent-2); }
+li[data-task="c"]  > input::after { content: "☁"; }
+
+li[data-task="t"]  > input { background: var(--rb-accent-1); border-color: var(--rb-accent-1); }
+li[data-task="t"]  > input::after { content: "◎"; }
+
+li[data-task="D"]  > input { background: var(--rb-error); border-color: var(--rb-error); }
+li[data-task="D"]  > input::after { content: "📅"; font-size: 0.7em; }
+
+li[data-task="O"]  > input { background: var(--rb-accent-2); border-color: var(--rb-accent-2); }
+li[data-task="O"]  > input::after { content: "⏱"; font-size: 0.7em; }
+
+li[data-task="z"]  > input { background: var(--rb-faint); border-color: var(--rb-faint); }
+li[data-task="z"]  > input::after { content: "z"; }
+
+li[data-task="R"]  > input { background: var(--rb-accent-2); border-color: var(--rb-accent-2); }
+li[data-task="R"]  > input::after { content: "↻"; }
+
+li[data-task="i"]  > input { background: var(--rb-accent-2); border-color: var(--rb-accent-2); }
+li[data-task="i"]  > input::after { content: "i"; font-style: italic; }
+
+li[data-task="n"]  > input { background: var(--rb-accent-3); border-color: var(--rb-accent-3); }
+li[data-task="n"]  > input::after { content: "№"; font-size: 0.7em; }
+
+li[data-task="Q"]  > input { background: var(--rb-warning); border-color: var(--rb-warning); }
+li[data-task="Q"]  > input::after { content: "💬"; font-size: 0.7em; }
+
+li[data-task="u"]  > input { background: var(--rb-accent-3); border-color: var(--rb-accent-3); }
+li[data-task="u"]  > input::after { content: "👤"; font-size: 0.7em; }
+
+li[data-task="m"]  > input { background: var(--rb-accent-1); border-color: var(--rb-accent-1); }
+li[data-task="m"]  > input::after { content: "📍"; font-size: 0.7em; }
+
+li[data-task="p"]  > input { background: var(--rb-accent-1); border-color: var(--rb-accent-1); }
+li[data-task="p"]  > input::after { content: "📌"; font-size: 0.7em; }
+
+li[data-task="d"]  > input { background: var(--rb-error); border-color: var(--rb-error); }
+li[data-task="d"]  > input::after { content: "🗑"; font-size: 0.7em; }
+
+li[data-task="C"]  > input { background: var(--rb-success); border-color: var(--rb-success); }
+li[data-task="C"]  > input::after { content: "♻"; }
+
+li[data-task="E"]  > input { background: var(--rb-accent-2); border-color: var(--rb-accent-2); }
+li[data-task="E"]  > input::after { content: "↗"; }
+
+li[data-task="F"]  > input { background: var(--rb-error); border-color: var(--rb-error); }
+li[data-task="F"]  > input::after { content: "🔥"; font-size: 0.7em; }
+
+li[data-task="H"]  > input { background: var(--rb-accent-1); border-color: var(--rb-accent-1); }
+li[data-task="H"]  > input::after { content: "⌂"; }
+
+li[data-task="J"]  > input { background: var(--rb-accent-4); border-color: var(--rb-accent-4); }
+li[data-task="J"]  > input::after { content: "🎉"; font-size: 0.7em; }
+
+li[data-task="K"]  > input { background: var(--rb-accent-3); border-color: var(--rb-accent-3); }
+li[data-task="K"]  > input::after { content: "🔧"; font-size: 0.7em; }
+
+li[data-task="L"]  > input { background: var(--rb-accent-3); border-color: var(--rb-accent-3); }
+li[data-task="L"]  > input::after { content: "📖"; font-size: 0.7em; }
+
+li[data-task="M"]  > input { background: var(--rb-success); border-color: var(--rb-success); }
+li[data-task="M"]  > input::after { content: "$"; }
+
+li[data-task="N"]  > input { background: var(--rb-accent-3); border-color: var(--rb-accent-3); }
+li[data-task="N"]  > input::after { content: "📝"; font-size: 0.7em; }
+
+li[data-task="P"]  > input { background: var(--rb-accent-1); border-color: var(--rb-accent-1); }
+li[data-task="P"]  > input::after { content: "📍"; font-size: 0.7em; }
+
+li[data-task="T"]  > input { background: var(--rb-accent-2); border-color: var(--rb-accent-2); }
+li[data-task="T"]  > input::after { content: "🎫"; font-size: 0.7em; }
+
+li[data-task="U"]  > input { background: var(--rb-accent-1); border-color: var(--rb-accent-1); }
+li[data-task="U"]  > input::after { content: "▲"; }
+
+li[data-task="W"]  > input { background: var(--rb-warning); border-color: var(--rb-warning); }
+li[data-task="W"]  > input::after { content: "🛠"; font-size: 0.7em; }
+
+li[data-task="a"]  > input { background: var(--rb-accent-2); border-color: var(--rb-accent-2); }
+li[data-task="a"]  > input::after { content: "♪"; }
+
+li[data-task="e"]  > input { background: var(--rb-accent-3); border-color: var(--rb-accent-3); }
+li[data-task="e"]  > input::after { content: "✉"; }
+
+li[data-task="s"]  > input { background: var(--rb-accent-4); border-color: var(--rb-accent-4); }
+li[data-task="s"]  > input::after { content: "★"; }
+
+/* Strike-through for completed/cancelled to give visual feedback */
+li[data-task="x"], li[data-task="X"], li[data-task="-"] {
+  text-decoration: line-through;
+  color: var(--rb-muted);
 }
 
 /* =========================================================

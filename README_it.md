@@ -50,6 +50,143 @@ rbWave/
 └── README_it.md
 ```
 
+## Anteprima Callout & checkbox
+
+> I blocchi seguenti vengono renderizzati con lo stile completo **solo in Obsidian**. GitHub renderizza un sottoinsieme dei callout (NOTE / TIP / IMPORTANT / WARNING / CAUTION) e mostra i marker custom delle task come checkbox grezzi.
+
+### Callout
+
+> [!NOTE] Nota Standard
+> Blocco predefinito. Utile per informazioni generali che non richiedono attenzione particolare.
+> Syntax: `> [!NOTE]`
+
+> [!TIP] Consiglio Utile
+> Usa i callout per organizzare visivamente le tue note. Puoi annidarne uno dentro l'altro.
+> Syntax: `> [!TIP]`
+
+> [!IMPORTANT] Importante
+> Queste informazioni sono cruciali per comprendere il contesto successivo.
+> Syntax: `> [!IMPORTANT]`
+
+> [!WARNING] Attenzione
+> Fai attenzione a questo dettaglio. Potrebbe causare confusione se ignorato.
+> Syntax: `> [!WARNING]`
+
+> [!CAUTION] Cautela
+> Procedi con estrema cautela. Un'azione errata qui potrebbe portare a perdita di dati o errori gravi.
+> Syntax: `> [!CAUTION]`
+
+> [!ABSTRACT] Riepilogo
+> Ideale per i sommari. `[!SUMMARY]` è un alias.
+> Syntax: `> [!ABSTRACT]` o `> [!SUMMARY]`
+
+> [!INFO] Informazioni
+> Dettagli tecnici o dati aggiuntivi.
+> Syntax: `> [!INFO]`
+
+> [!QUOTE] Citazione
+> "Il miglior modo per predire il futuro è crearlo."
+> Syntax: `> [!QUOTE]`
+
+> [!SUCCESS] Operazione Riuscita
+> Un processo è stato completato con successo o un'ipotesi verificata.
+> Syntax: `> [!SUCCESS]`
+
+> [!QUESTION] Domanda
+> Domanda aperta evidenziata come tale.
+> Syntax: `> [!QUESTION]`
+
+> [!FAILURE] Errore
+> Qualcosa non ha funzionato come previsto o un test è fallito.
+> Syntax: `> [!FAILURE]`
+
+> [!DANGER] Pericolo
+> Rischio elevato. Usa questo blocco solo per avvertimenti critici.
+> Syntax: `> [!DANGER]`
+
+> [!BUG] Bug Segnalato
+> Per tracciare errori noti nel codice o software.
+> Syntax: `> [!BUG]`
+
+> [!EXAMPLE] Esempio Pratico
+> 1. Inizia con `> [!TIPO]`
+> 2. Aggiungi il testo nelle righe successive.
+> Syntax: `> [!EXAMPLE]`
+
+#### Callout Collassabile
+
+Aggiungi un `-` dopo il tipo per rendere il blocco collassato di default.
+
+> [!TIP]- Clicca per espandere
+> Contenuto nascosto finché non clicchi sul titolo.
+> Syntax: `> [!TIP]-`
+
+### Custom Checkbox
+
+#### Stati Base
+- [ ] Task da fare (default) `[ ]`
+- [x] Task completato `[x]`
+- [X] Task completato (maiuscolo) `[X]`
+- [-] Task annullato / N/A `[-]`
+
+#### Priorità e Urgenza
+- [!] **URGENTE** — azione immediata `[!]`
+- [>] Task delegato `[>]`
+- [<] Task rimandato / schedulato `[<]`
+- [/] In corso di svolgimento `[/]`
+
+#### Idee e Creatività
+- [*] Idea brillante / preferito `[*]`
+- [l] Insight / lampadina `[l]`
+- [B] Brainstorming `[B]`
+- [Y] Riflessione / pensiero `[Y]`
+
+#### Dubbi e Verifiche
+- [?] Dubbio da chiarire `[?]`
+- [w] Da revisionare `[w]`
+- [V] Verificato `[V]`
+
+#### Sviluppo e Tecnica
+- [b] Bug da risolvere `[b]`
+- [f] Feature richiesta / bandiera `[f]`
+- [k] Chiave / password / critico `[k]`
+- [S] Sicuro / bloccato `[S]`
+- [c] Cloud / sync `[c]`
+
+#### Organizzazione e Tempo
+- [t] Target / obiettivo `[t]`
+- [D] Scadenza / data `[D]`
+- [O] Tempo stimato `[O]`
+- [z] In pausa / snooze `[z]`
+- [R] Da aggiornare / refresh `[R]`
+
+#### Comunicazione e Info
+- [i] Informazione generale `[i]`
+- [n] Nota numerica `[n]`
+- [Q] Discussione aperta `[Q]`
+- [u] Utente coinvolto `[u]`
+- [m] Luogo / mappa `[m]`
+
+#### Vari
+- [p] Pin / fisso `[p]`
+- [d] Da eliminare / cestino `[d]`
+- [C] Da riciclare / rivedere `[C]`
+- [E] Link esterno / web `[E]`
+- [F] Hot / trending `[F]`
+- [H] Home / principale `[H]`
+- [J] Celebrazione `[J]`
+- [K] Strumento `[K]`
+- [L] Lettura / studio `[L]`
+- [M] Finanza / costo `[M]`
+- [N] Nota rapida `[N]`
+- [P] Puntina (variante) `[P]`
+- [T] Ticket / supporto `[T]`
+- [U] Priorità alta (up) `[U]`
+- [W] Lavoro manuale `[W]`
+- [a] Audio / registrato `[a]`
+- [e] Email da inviare `[e]`
+- [s] Salvato / bookmark `[s]`
+
 ## Autore
 
 **Ing. Roberto Bissanti** — ingegneria aerospaziale applicata all'innovazione nelle energie rinnovabili (turbine eoliche ad asse verticale, mini-eolico, leghe a memoria di forma), con base a Palermo. Anche sviluppatore software, per i casi in cui il foglio di calcolo non basta più.
