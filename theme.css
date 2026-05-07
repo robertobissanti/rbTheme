@@ -564,10 +564,10 @@ body.rb-mono-headings .markdown-preview-view h4::before { content: "#### "; colo
 }
 
 /* WARNING = amber triangle (default already)       */
-/* CAUTION = red lightning, distinct severity hue   */
+/* CAUTION = red open hand (stop gesture)            */
 .callout[data-callout="caution"] {
   --callout-color: 230, 60, 60;
-  --callout-icon: lucide-zap;
+  --callout-icon: lucide-hand;
 }
 
 /* =========================================================
