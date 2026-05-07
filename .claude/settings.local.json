@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(git add *)",
-      "Bash(git -c user.email=\"roberto.bissanti@gmail.com\" -c user.name=\"Roberto Bissanti\" commit -m \"Bump dark-mode scanline opacity 0.05 -> 0.12 for visibility parity\")",
-      "Bash(git push *)"
-    ]
-  }
-}
