@@ -197,7 +197,7 @@ Mac user since 1989 — old enough to remember when "dark mode" meant the screen
 - 💼 [LinkedIn](https://www.linkedin.com/in/roberto-bissanti/)
 - 🐙 [GitHub @robertobissanti](https://github.com/robertobissanti)
 
-Issues, ideas and PRs are welcome on [github.com/robertobissanti/rbTheme](https://github.com/robertobissanti/rbTheme).
+Issues, ideas and PRs are welcome on [github.com/robertobissanti/rbWave](https://github.com/robertobissanti/rbWave).
 
 ## License
 

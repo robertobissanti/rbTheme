@@ -197,7 +197,7 @@ Utente Mac dal 1989 — abbastanza vecchio da ricordare quando "modalità scura"
 - 💼 [LinkedIn](https://www.linkedin.com/in/roberto-bissanti/)
 - 🐙 [GitHub @robertobissanti](https://github.com/robertobissanti)
 
-Issue, idee e PR sono benvenute su [github.com/robertobissanti/rbTheme](https://github.com/robertobissanti/rbTheme).
+Issue, idee e PR sono benvenute su [github.com/robertobissanti/rbWave](https://github.com/robertobissanti/rbWave).
 
 ## Licenza
 
